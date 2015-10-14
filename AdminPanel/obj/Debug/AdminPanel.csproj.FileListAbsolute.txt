@@ -71,3 +71,5 @@ C:\Users\ginks\documents\visual studio 2015\Projects\AdminPanel\AdminPanel\bin\P
 C:\Users\ginks\documents\visual studio 2015\Projects\AdminPanel\AdminPanel\bin\Parse.xml
 C:\Users\ginks\documents\visual studio 2015\Projects\AdminPanel\AdminPanel\bin\Parse.NetFx45.xml
 C:\Users\ginks\documents\visual studio 2015\Projects\AdminPanel\AdminPanel\obj\Debug\AdminPanel.csprojResolveAssemblyReference.cache
+C:\Users\ginks\documents\visual studio 2015\Projects\AdminPanel\AdminPanel\bin\CKFinder.dll
+C:\Users\ginks\documents\visual studio 2015\Projects\AdminPanel\AdminPanel\bin\CKFinder.pdb

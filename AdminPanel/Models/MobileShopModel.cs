@@ -36,7 +36,9 @@ namespace AdminPanel.Models
 
         public float salePrice { get; set; }
         public float oldPrice { get; set; }
-
+        public Image image { get; set; }
+ 
+        
         public string mScreenSize { get; set; }
         public string mScreenResolution { get; set; }
         public string mCPU { get; set; }
@@ -51,7 +53,7 @@ namespace AdminPanel.Models
         public string mSize { get; set; }
         public string mConnectionPort { get; set; }
         public string mGuarantee { get; set; }
-        public Image image { get; set; }
+        
     }
 
     public class ReturningOrder
