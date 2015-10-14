@@ -1,0 +1,83 @@
+﻿@using AdminPanel.Models
+@model ServerUserModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login Admin Panel</title>
+    @Styles.Render("~/Styles/css")
+</head>
+<body>
+    <div class="color-line"></div>
+
+    <div class="login-container" style="margin-top: 10px">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center m-b-md">
+                    <img src="~/Content/logomobile.png" alt="Alternate Text" />
+                    <h3>PLEASE LOGIN TO ADMIN PAGE</h3>
+                    <small>This is the best app ever!</small>
+                    
+                </div>
+                <div class="hpanel">
+                    <div class="panel-body">
+
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                        {
+                            @Html.ValidationSummary()
+                            <div class="form-group">
+                                <label class="control-label" for="username">Username</label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="password">Password</label>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="password">Role</label>
+                                @Html.DropDownListFor(m => m.Role,
+                                    new SelectList(
+                                        new[]
+                                        {
+                                            "Administrator",
+                                            "Stock Manager",
+                                            "Shipper"
+                                        }
+                                        )
+                                    , new { @class = "form-control" }
+                                    )
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    @Html.CheckBox("check", new { @class = "i-checks"} )
+                                    Remember login
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-success btn-block" value="Login">
+                            <a class="btn btn-default btn-block" href="#">Register</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <strong>AdminPage</strong><br /> 2015 Copyright Company Name
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/Scripts/js")
+</body>
+</html>
