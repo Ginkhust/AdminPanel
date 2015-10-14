@@ -41,7 +41,7 @@
                                 @for (int i = 0; i <Model.Count ; i++)
                                 {
                                     <tr>
-                                        <td>@Model[i].ObjectId</td>
+                                        <td>@Model[i].ProductId</td>
                                         <td>@Model[i].mTitle</td>
                                         <td>@Model[i].mPrice</td>
                                         <td>@Model[i].mQuantity</td>
@@ -50,10 +50,9 @@
                                         <td>@Model[i].mRAM</td>
                                         <td>@Model[i].mPin</td>
                                         <td>@Model[i].mCPU</td>
-                                        <td><img src="@Model[i].image.titleImage" alt="none" class="img-rounded"/></td>
                                         <td>
-                                            <a type="button" href="@Url.Action("EditUser", "Users", new {id = Model[i].ObjectId})" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</a>&nbsp;
-                                            <a type="button" class="btn btn-danger btn-sm" href="/Users/DeleteUser"><i class="fa fa-trash-o"></i>&nbsp;Del</a>
+                                            <a type="button" href="@Url.Action("EditProduct", "Products", new {id = Model[i].ProductId})" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</a>&nbsp;
+                                            <a type="button" class="btn btn-danger btn-sm" href="@Url.Action("DeleteProduct", "Products", new { id = Model[i].ProductId })"><i class="fa fa-trash-o"></i>&nbsp;Del</a>
                                         </td>
                                     </tr>
 

@@ -135,11 +135,24 @@ function ShowThumbnails( fileUrl, data )
                                     @Html.TextBoxFor(m => m.mWeight, new { @class = "form-control" })
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Sale Price</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(m => m.mSalePrice, new { @class = "form-control" })
+                                </div>
+                            </div>
 
                         </div>
 
                         <div class="col-md-6">
                             
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Old Price</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(m => m.mOldPrice, new { @class = "form-control" })
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Size</label>
                                 <div class="col-sm-9">

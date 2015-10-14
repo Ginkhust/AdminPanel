@@ -34,8 +34,8 @@ namespace AdminPanel.Models
         public float mQuantity { get; set; }
         public string mManufacture { get; set; }
 
-        public float salePrice { get; set; }
-        public float oldPrice { get; set; }
+        public float mSalePrice { get; set; }
+        public float mOldPrice { get; set; }
         public Image image { get; set; }
  
         
