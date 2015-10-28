@@ -4,6 +4,9 @@ using Parse;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
+using System.Web;
+using System.IO;
+using System.Net.Http;
 
 namespace AdminPanel.Controllers
 {
@@ -59,35 +62,42 @@ namespace AdminPanel.Controllers
         #region[Edit Product]
         public async Task<ActionResult> EditProduct(string id)
         {
-            ParseQuery<ParseObject> q = ParseObject.GetQuery("Product");
-            ParseObject p = await q.GetAsync(id);
+            try
+            {
+                ParseQuery<ParseObject> q = ParseObject.GetQuery("Product");
+                ParseObject p = await q.GetAsync(id);
 
-            Product product = new Product();
-            product.ProductId = p.ObjectId;
-            product.mTitle = p.Get<string>("mTitle");
-            product.mPrice = p.Get<float>("mPrice");
-            product.mQuantity = p.Get<float>("mQuantity");
-            product.mManufacture = p.Get<string>("mManufacture");
-            product.mSalePrice = p.Get<float>("mSalePrice");
-            product.mOldPrice = p.Get<float>("mOldPrice");
+                Product product = new Product();
+                product.ProductId = p.ObjectId;
+                product.mTitle = p.Get<string>("mTitle");
+                product.mPrice = p.Get<float>("mPrice");
+                product.mQuantity = p.Get<float>("mQuantity");
+                product.mManufacture = p.Get<string>("mManufacture");
+                product.mSalePrice = p.Get<float>("mSalePrice");
+                product.mOldPrice = p.Get<float>("mOldPrice");
 
-            product.mScreenResolution = p.Get<string>("mScreenResolution");
-            product.mScreenSize = p.Get<string>("mScreenSize");
-            product.mCPU = p.Get<string>("mCPU");
-            product.mRAM = p.Get<string>("mRAM");
-            product.mROM = p.Get<string>("mROM");
-            product.mMemoryCard = p.Get<string>("mMemoryCard");
-            product.mCamera = p.Get<string>("mCamera");
-            product.mSim = p.Get<string>("mSim");
-            product.mOS = p.Get<string>("mOS");
-            product.mPin = p.Get<string>("mPin");
-            product.mWeight = p.Get<string>("mWeight");
+                product.mScreenResolution = p.Get<string>("mScreenResolution");
+                product.mScreenSize = p.Get<string>("mScreenSize");
+                product.mCPU = p.Get<string>("mCPU");
+                product.mRAM = p.Get<string>("mRAM");
+                product.mROM = p.Get<string>("mROM");
+                product.mMemoryCard = p.Get<string>("mMemoryCard");
+                product.mCamera = p.Get<string>("mCamera");
+                product.mSim = p.Get<string>("mSim");
+                product.mOS = p.Get<string>("mOS");
+                product.mPin = p.Get<string>("mPin");
+                product.mWeight = p.Get<string>("mWeight");
 
-            product.mSize = p.Get<string>("mSize");
-            product.mConnectionPort = p.Get<string>("mConnectionPort");
-            product.mGuarantee = p.Get<string>("mGuarantee");
-
-            return View(product);
+                product.mSize = p.Get<string>("mSize");
+                product.mConnectionPort = p.Get<string>("mConnectionPort");
+                product.mGuarantee = p.Get<string>("mGuarantee");
+                return View(product);
+            }
+            catch (ParseException e)
+            {
+                return View();
+            }
+           
         }
 
         [HttpPost]
@@ -146,6 +156,7 @@ namespace AdminPanel.Controllers
         public async Task<ActionResult> ProductsList()
         {
             ParseQuery<ParseObject> query = ParseObject.GetQuery("Product");
+
             IEnumerable<ParseObject> products = await query.FindAsync();
 
             List<Product> _products = new List<Product>();
@@ -153,7 +164,8 @@ namespace AdminPanel.Controllers
             foreach (ParseObject p in products)
             {
                 Product product = new Product();
-                product.ProductId = p.ObjectId;
+
+
                 product.mTitle = p.Get<string>("mTitle");
                 product.mPrice = p.Get<float>("mPrice");
                 product.mQuantity = p.Get<float>("mQuantity");
@@ -177,6 +189,8 @@ namespace AdminPanel.Controllers
                 product.mConnectionPort = p.Get<string>("mConnectionPort");
                 product.mGuarantee = p.Get<string>("mGuarantee");
                 _products.Add(product);
+
+
             }
 
             return View(_products);
