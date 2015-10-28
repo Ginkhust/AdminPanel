@@ -208,14 +208,6 @@ function ShowThumbnails( fileUrl, data )
                                     @Html.TextBoxFor(m => m.mGuarantee, new { @class = "form-control" })
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Images</label>
-                                <div class="col-sm-9">
-                                    @Html.TextBoxFor(m => m.image.titleImage, new { @class = "form-control" })
-                                   <input type="button" class="btn btn-block btn-danger" onclick="BrowseServer('~/Images:/', 'xImagePath')" value="..." />
-                                </div>
-                            </div>
                             
                             <div class="form-group">
                                 <div class="col-sm-7"></div>
