@@ -22,8 +22,7 @@ namespace AdminPanel.Models
     {
         public string ImageId { get; set; }
         public Product product { get; set; }
-        public string titleImage { get; set; }
-        public string previewImage { get; set; }
+        public string images { get; set; }
     }
 
     public class Product
@@ -36,7 +35,7 @@ namespace AdminPanel.Models
 
         public float mSalePrice { get; set; }
         public float mOldPrice { get; set; }
-        public Image image { get; set; }
+        public List<Image> image { get; set; }
  
         
         public string mScreenSize { get; set; }
